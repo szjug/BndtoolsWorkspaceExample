@@ -1,0 +1,116 @@
+
+// non-Workspace Build
+// https://github.com/bndtools/bnd/blob/master/biz.aQute.bnd.gradle/README.md#gradle-plugin-for-non-workspace-builds
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:3.1.0'
+  }
+}
+
+apply plugin: 'biz.aQute.bnd.builder'
+
+repositories {
+   jcenter()
+}
+
+version = 1.0
+
+/*
+jar {
+    manifest {
+        attributes(//'Export-Package': 'com.acme.api.*',
+                   '-sources': 'true',
+                   //'-include': 'other.bnd'
+                   )
+    }
+}
+*/
+
+/*
+
+------------- after adding build.gradle ------------- 
+
+Executing command: "tasks"
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'D:\Workspaces\Enide-BndTools\BndtoolsWorkspaceExample\org.example.bndtools.component2bndlayout\build.gradle' line: 14
+
+* What went wrong:
+A problem occurred evaluating project ':org.example.bndtools.component2bndlayout'.
+> Failed to apply plugin [id 'biz.aQute.bnd.builder']
+
+BUILD FAILED
+
+Total time: 6.98 secs
+   > Project already has 'biz.aQute.bnd' plugin applied.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+------------- after adding empty settings.gradle ------------- 
+
+Executing command: "tasks"
+:tasks
+
+------------------------------------------------------------
+All tasks runnable from root project
+------------------------------------------------------------
+
+:tasks FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tasks'.
+> Could not resolve all dependencies for configuration ':baseline'.
+   > Cannot resolve external dependency :org.example.bndtools.component2bndlayout:(,null) because no repositories are defined.
+     Required by:
+         :org.example.bndtools.component2bndlayout:unspecified
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 2.949 secs
+
+------------- after adding repositories { jcenter() } ------------- 
+
+Executing command: "tasks"
+:tasks
+
+------------------------------------------------------------
+All tasks runnable from root project
+------------------------------------------------------------
+
+:tasks FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tasks'.
+> Could not resolve all dependencies for configuration ':baseline'.
+   > Could not find any matches for :org.example.bndtools.component2bndlayout:(,null) as no versions of :org.example.bndtools.component2bndlayout are available.
+     Searched in the following locations:
+         https://jcenter.bintray.com//org.example.bndtools.component2bndlayout/maven-metadata.xml
+         https://jcenter.bintray.com//org.example.bndtools.component2bndlayout/
+     Required by:
+         :org.example.bndtools.component2bndlayout:unspecified
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 13.791 secs
+
+
+
+*/
+
